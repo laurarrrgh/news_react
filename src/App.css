@@ -1,0 +1,33 @@
+.app {
+  text-align: center;
+  width: 100vw;
+  height: 100vh;
+  display: grid;
+  grid-template-rows: 1fr, 1fr, 12fr, 1fr;
+  grid-template-areas:
+    "header"
+    "nav"
+    "main"
+    "footer";
+}
+
+.header {
+  grid-area: header;
+  border: 1px solid red;
+}
+
+.nav {
+  grid-area: nav;
+  border: 1px solid green;
+}
+
+.main {
+  grid-area: main;
+  border: 1px solid blue;
+  overflow-y: scroll;
+}
+
+.footer {
+  grid-area: footer;
+  border: 1px solid orange;
+}
