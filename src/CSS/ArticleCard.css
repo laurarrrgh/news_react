@@ -1,3 +1,12 @@
-.articleCard {
+.ArticleCard {
+  grid-template-columns: 3fr, 3fr, 3fr;
   align-content: center;
+  border: solid 1px black;
+  padding: 5px;
+  margin-right: 40px;
+  box-shadow: 5px #888888;
+}
+
+.Author {
+  text-align: left;
 }
