@@ -5,6 +5,7 @@ import Nav from "./Components/Nav.jsx";
 import Articles from "./Components/Articles.jsx";
 import Article from "./Components/ArticleCard.jsx";
 import PostArticle from "./Components/PostArticle";
+import SingleArticle from "./Components/SingleArticle";
 import "./CSS/App.css";
 import { Router } from "@reach/router";
 
@@ -20,9 +21,9 @@ class App extends Component {
         <Nav />
         <Router className="router">
           <Articles path="/" />
-          <Articles path="/articles/:topic" />
-          <Article path="articles/:topic/:article_id" />
+          <Articles path="/:topic" />
           <PostArticle path="/newArticle" />
+          <SingleArticle path="/article/:article_id" />
         </Router>
         <Footer>Footer</Footer>
       </div>
