@@ -18,3 +18,8 @@ export const postArticle = async article => {
   const { data } = await axios.post(`${BASE_URL}`, article);
   return data.article;
 };
+
+export const getArticle = async article_id => {
+  const { data } = await axios.get(`${BASE_URL}`, article_id);
+  return data.article;
+};
