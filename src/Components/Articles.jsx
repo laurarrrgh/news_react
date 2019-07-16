@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import * as api from "../utils/api.js";
 import ArticleCard from "./ArticleCard.jsx";
+import "../CSS/ArticleCard.css";
 
 class Articles extends Component {
   state = {
@@ -8,47 +9,98 @@ class Articles extends Component {
   };
 
   render() {
-    // const Articles = props => {
     const { topic } = this.props;
     const { articles } = this.state;
-    // };const Articles = props => {
+
     return (
       <div>
+        <h2>{topic ? `Articles on ${topic}` : "All Articles"}</h2>
         <ul>
           {articles.map(article => {
             return <ArticleCard article={article} key={article.article_id} />;
           })}
         </ul>
       </div>
-
-      // <h2>{topic? 'Articles on ${topic}' : 'All Articles'</h2>
     );
   }
 
   componentDidMount() {
     this.fetchArticles();
   }
-  // componentDidUpdate(prevProps, prevSate) {
-  //   const newTopic = this.props.topic !== prevProps.topic;
+  componentDidUpdate(prevProps, prevSate) {
+    const newTopic = this.props.topic !== prevProps.topic;
 
-  //   if (newTopic) this.fetchArticles();
-  // }
+    if (newTopic) this.fetchArticles();
+  }
+
   fetchArticles = () => {
-    //const { topic } = this.props;
-    api.getArticles().then(articles => {
-      this.setState({ articles });
-    });
+    const { topic } = this.props;
+
+    if (topic === "undefined") {
+      api.getArticles().then(articles => this.setState({ articles }));
+    } else {
+      api.getArticles(topic).then(articles => {
+        this.setState({ articles });
+      });
+    }
   };
+
+  // fetchArticlesByTopic = () => {
+
+  // }
 }
 
-// fetchArticles = () => {
-//   const { topic } = this.props;
-//   if (topic === "all") {
-//     api.getArticles(sort_by, order).then(articles => this.setState({ articles }))
-//   } else {
-//     api
-//       .getArticle(topic)
-//       .then(articles => this.setState({ articles }))
+export default Articles;
+
+// amended - not working
+// import React, { Component } from "react";
+// import * as api from "../utils/api.js";
+// import ArticleCard from "./ArticleCard.jsx";
+
+// class Articles extends Component {
+//   state = {
+//     articles: []
+//   };
+
+//   render() {
+//     const articles = props => {
+//       console.log(this.props);
+//       // const { topic } = this.props;
+//       // const { articles } = this.state;
+//     };
+//     return (
+//       // <div>
+//       //   <h2>{{ topic } ? `Articles on ${topic}` : "All Articles"}</h2>
+//       // </div>
+//       <ul>
+//         {articles.map(article => {
+//           <ArticleCard article={article} key={article.article_id} />;
+//         })}
+//       </ul>
+
+//       // <ul>
+//       //   {articles.map(article => {
+//       //      <ArticleCard article={article} key={article.article_id} >
+//       //   })}
+//       // </ul>
+//     );
 //   }
 
-export default Articles;
+//   componentDidMount() {
+//     this.fetchArticles();
+//   }
+//   componentDidUpdate(prevProps, prevSate) {
+//     const newTopic = this.props.topic !== prevProps.topic;
+
+//     if (newTopic) this.fetchArticles();
+//   }
+
+//   fetchArticles = () => {
+//     const { topic } = this.props;
+//     api.getArticles().then(articles => {
+//       this.setState({ articles });
+//     });
+//   };
+// }
+
+// export default Articles;
