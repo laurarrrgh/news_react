@@ -20,6 +20,8 @@ export const postArticle = async article => {
 };
 
 export const getArticle = async article_id => {
-  const { data } = await axios.get(`${BASE_URL}`, article_id);
+  const { data } = await axios
+    .get(`${BASE_URL}/articles/${article_id}`)
+    .catch(console.log);
   return data.article;
 };
