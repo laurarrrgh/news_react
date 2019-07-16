@@ -14,7 +14,7 @@ class Nav extends Component {
         <nav className="nav">
           <Link to="/">All Articles</Link>
           {topics.map(topic => (
-            <Link key={topic.slug} to={`/articles/${topic.slug}`}>
+            <Link key={topic.slug} Link to={`/articles/${topic.slug}`}>
               {topic.slug}
             </Link>
           ))}
