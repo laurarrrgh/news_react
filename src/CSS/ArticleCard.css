@@ -1,12 +1,46 @@
-.ArticleCard {
-  grid-template-columns: 3fr, 3fr, 3fr;
+/* .ArticleCard {
+  /* grid-area: main;
+  display: grid;
+  grid-columns: 100px auto;
   align-content: center;
-  border: solid 1px black;
-  padding: 5px;
-  margin-right: 40px;
-  box-shadow: 5px #888888;
-}
+  border-bottom: solid 1px black;
+  padding-top: 25px;
+  margin-right: 25px;
+  margin: 10px;
+  box-shadow: 5px #888888; */
 
 .Author {
   text-align: left;
+}
+
+.additional {
+  display: grid;
+  align-items: stretch;
+}
+
+.ArticleSpacing {
+  padding: 5px;
+  padding-left: 50px;
+  padding-right: 70px;
+  margin-right: 50px;
+}
+
+.ArticleCard {
+  display: grid;
+  display-grid-columns: 100px auto;
+  padding: 0;
+  padding: 10px;
+  border-bottom: solid 1px grey;
+  background-color: white;
+}
+
+.ArticleSpacing {
+}
+
+.main {
+}
+.ArticleTitle {
+}
+
+.app {
 }

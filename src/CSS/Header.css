@@ -1,0 +1,15 @@
+.header {
+  grid-area: header;
+  /* border: 1px solid red;
+  background-color: blue; */
+  padding-top: 25px;
+  padding-bottom: 2px;
+  margin-bottom: 5px;
+  margin-top: 0;
+  font-weight: 400;
+  letter-spacing: 0.07em;
+  font-size: 2.4em;
+  height: 70px;
+  width: 110%;
+  margin: -10px;
+}

@@ -1,0 +1,31 @@
+.main {
+  /* background-color: green; */
+  padding: 20px;
+  overflow-y: scroll;
+  margin: 0;
+  background-color: white;
+}
+
+.comment {
+  display: grid;
+  display-grid-columns: 100px auto;
+  padding: 0;
+  padding: 10px;
+  border-bottom: solid 1px grey;
+}
+.leadarticle {
+  /* background-color: pink; */
+}
+
+.comments {
+  /* background-color: orange; */
+}
+
+/* .articlebody {
+  padding: 25px;
+  margin-bottom: 50px;
+} */
+
+.smalldetails {
+  text-align: left;
+}
