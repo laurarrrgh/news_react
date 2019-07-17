@@ -18,7 +18,7 @@ class SingleArticle extends Component {
         <div className="comments">
           {comments.map(comment => {
             return (
-              <ul className="comment" key="comment_id">
+              <ul className="comment" key={comment.comment_id}>
                 <h4>{comment.body}</h4>
                 <h6>{comment.author}</h6>
                 <h6>{comment.votes}</h6>
