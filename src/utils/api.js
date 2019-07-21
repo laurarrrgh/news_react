@@ -14,11 +14,6 @@ export const getArticles = async (topic, sort_by) => {
   return data.articles;
 };
 
-export const postArticle = async article => {
-  const { data } = await axios.post(`${BASE_URL}`, article);
-  return data.article;
-};
-
 export const getArticle = async article_id => {
   const { data } = await axios
     .get(`${BASE_URL}/articles/${article_id}`)
@@ -27,8 +22,20 @@ export const getArticle = async article_id => {
 };
 
 export const getComments = async article_id => {
-  const { data } = await axios
-    .get(`${BASE_URL}/articles/${article_id}/comments`)
-    .catch(console.log);
+  const { data } = await axios.get(
+    `${BASE_URL}/articles/${article_id}/comments`
+  );
   return data.comments;
+};
+
+export const postComment = async (username, body, article_id) => {
+  const { data } = await axios.post(
+    `${BASE_URL}/articles/${article_id}/comments`,
+    {
+      body,
+      username,
+      article_id
+    }
+  );
+  return data;
 };
