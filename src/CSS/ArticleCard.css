@@ -10,7 +10,11 @@
   box-shadow: 5px #888888; */
 
 .Author {
-  text-align: left;
+  grid-template-columns: 1fr 1fr 1fr;
+  align-content: stretch;
+  align-items: stretch;
+  display: grid;
+  justify-content: space-evenly;
 }
 
 .additional {
@@ -24,17 +28,29 @@
   padding-right: 70px;
   margin-right: 50px;
 }
-
+.mappedArticles {
+  padding-left: 150px;
+  padding-right: 150px;
+  margin: 5px;
+}
 .ArticleCard {
   display: grid;
-  display-grid-columns: 100px auto;
-  padding: 0;
-  padding: 10px;
-  border-bottom: solid 1px grey;
+  /* grid-template-columns: 100px auto; */
+  padding: 5px;
   background-color: white;
+  margin: 10px;
 }
 
-.ArticleSpacing {
+.individualArticle {
+  border: 2px solid #afbed1;
+  border-radius: 8px;
+  margin-left: 50px;
+  margin-right: 50px;
+  padding: 5px;
+  margin: 10px;
+}
+
+/* .ArticleSpacing {
 }
 
 .main {
@@ -43,4 +59,4 @@
 }
 
 .app {
-}
+} */
