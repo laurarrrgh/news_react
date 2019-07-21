@@ -1,7 +1,8 @@
 import React from "react";
+import "../CSS/Header.css";
 
 const Header = () => {
-  return <h1 className="header">Laura's fantastical reddit rip-off</h1>;
+  return <h1 className="header">Definitely Not Reddit</h1>;
 };
 
 export default Header;
