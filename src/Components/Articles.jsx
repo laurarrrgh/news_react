@@ -17,21 +17,7 @@ class Articles extends Component {
     return (
       <div className="allArticles">
         <h2>{topic ? `${topic} Articles` : "Welcome home...(page)!"}</h2>
-        <form>
-          {/* <button type="submit" onClick={this.handleClick} value="created_at">
-            Test Button created_at
-          </button>
-          <button
-            type="submit"
-            onClick={this.handleClick}
-            value="comment_count"
-          >
-            Test Button comment_count
-          </button>
-          <button type="submit" onClick={this.handleClick} value="votes">
-            Test Button votes
-          </button> */}
-
+        <form className="form">
           <select className="dropdown" onChange={this.handleChange}>
             <option value="created_at">Most Recent</option>
             <option value="comment_count">Most Commented</option>
