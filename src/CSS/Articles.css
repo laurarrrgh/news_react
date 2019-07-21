@@ -1,4 +1,28 @@
-.app {
+.allArticles {
   overflow-y: scroll;
-  background-color: blue;
+  display: grid;
+  grid-template-columns: 1fr 5fr 1fr;
+  grid-template-areas:
+    "left"
+    "main"
+    "right";
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.form {
+  /* display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr; */
+  /* flex-wrap: wrap;
+  align-content: right; */
+}
+
+.mappedArticles {
+}
+
+.articleCard {
+  padding: 5px;
 }
