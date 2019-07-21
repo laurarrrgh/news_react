@@ -1,7 +1,8 @@
 import React from "react";
+import "../CSS/Footer.css";
 
 const Footer = () => {
-  return <h5 className="footer">Hire Me :)</h5>;
+  return <footer className="footer">Hire Me :)</footer>;
 };
 
 export default Footer;
