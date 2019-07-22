@@ -16,7 +16,11 @@ class Articles extends Component {
 
     return (
       <div className="allArticles">
-        <h2>{topic ? `${topic} Articles` : "Welcome home...(page)!"}</h2>
+        <h2>
+          {topic
+            ? `${topic.charAt(0).toUpperCase() + topic.slice(1)} Articles`
+            : "Welcome home...(page)!"}
+        </h2>
         <form className="form">
           <select className="dropdown" onChange={this.handleChange}>
             <option value="created_at">Most Recent</option>
@@ -25,7 +29,7 @@ class Articles extends Component {
           </select>
         </form>
 
-        <ul>
+        <ul className="mappedArticles">
           {articles.map(article => {
             return <ArticleCard article={article} key={article.article_id} />;
           })}
