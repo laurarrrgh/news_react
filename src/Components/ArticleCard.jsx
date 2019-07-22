@@ -12,7 +12,7 @@ const ArticleCard = ({ article }) => {
           {article.title}
         </Link>
         <p className="topic">r/{article.topic}</p>
-        <p className="ArticleBody">{article.body}</p>
+        {/* <p className="ArticleBody">{article.body}</p> */}
         <Link className="comments" to={`/article/${article.article_id}`}>
           Number of comments: {article.comment_count}
         </Link>
