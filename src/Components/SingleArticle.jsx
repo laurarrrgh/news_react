@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import * as api from "../utils/api.js";
 import "../CSS/SingleArticle.css";
 import PostComment from "./PostComment.jsx";
+import DeleteComment from "./DeleteComment.jsx";
+import * as moment from "moment";
 
 class SingleArticle extends Component {
   state = {
@@ -11,7 +13,7 @@ class SingleArticle extends Component {
 
   render() {
     const { article, comments } = this.state;
-    const { comment_id } = this.props;
+    // const { comment_id } = this.props;
 
     return (
       <div className="singleArticleMain">
@@ -20,7 +22,7 @@ class SingleArticle extends Component {
           <p className="articlebody">{article.body}</p>
           <small className="smalldetails">
             Posted by:{article.author} Votes:{article.votes} Posted at:
-            {article.created_at}
+            {moment(article.created_at).format("DD-MM-YYYY hh:mm:ss")}
           </small>
         </span>
         <div className="comments">
@@ -34,8 +36,18 @@ class SingleArticle extends Component {
             return (
               <ul className="comment" key={comment.comment_id}>
                 <p>{comment.body}</p>
-                <small>{comment.author} </small>
-                <small>{comment.votes}</small>
+                <small>Author: {comment.author} </small>
+                <small>Votes: {comment.votes}</small>
+                <small>
+                  Posted at:
+                  {moment(comment.created_at).format("DD-MM-YYYY hh:mm:ss")}
+                </small>
+                {/* if(this.state.article.author === comment.author) */}
+
+                <DeleteComment>
+                  comment_id = {comment.comment_id}
+                  removeComment={this.removeComment}
+                </DeleteComment>
               </ul>
             );
           })}
@@ -62,6 +74,12 @@ class SingleArticle extends Component {
       this.setState({ comments });
     });
   };
-}
 
+  conditionalDelete = () => {
+    console.log(this.props, "conditionalDeleteprops");
+
+    /* {if(this.state.article.author === comment.author)} */
+  };
+}
+// add remove comment
 export default SingleArticle;
