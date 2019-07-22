@@ -3,6 +3,7 @@ import * as api from "../utils/api.js";
 import "../CSS/SingleArticle.css";
 import PostComment from "./PostComment.jsx";
 import DeleteComment from "./DeleteComment.jsx";
+import Votes from "./Votes.jsx";
 import * as moment from "moment";
 
 class SingleArticle extends Component {
@@ -22,8 +23,9 @@ class SingleArticle extends Component {
           <p className="articlebody">{article.body}</p>
           <small className="smalldetails">
             Posted by:{article.author} Votes:{article.votes} Posted at:
-            {moment(article.created_at).format("DD-MM-YYYY hh:mm:ss")}
+            {moment(article.created_at).format("DD-MM-YYYY hh:mm")}
           </small>
+          <Votes />
         </span>
         <div className="comments">
           <PostComment
@@ -34,21 +36,21 @@ class SingleArticle extends Component {
           />
           {comments.map(comment => {
             return (
-              <ul className="comment" key={comment.comment_id}>
+              <li className="comment" key={comment.comment_id}>
                 <p>{comment.body}</p>
                 <small>Author: {comment.author} </small>
                 <small>Votes: {comment.votes}</small>
                 <small>
                   Posted at:
-                  {moment(comment.created_at).format("DD-MM-YYYY hh:mm:ss")}
+                  {moment(comment.created_at).format("DD-MM-YYYY hh:mm")}
                 </small>
                 {/* if(this.state.article.author === comment.author) */}
-
-                <DeleteComment>
-                  comment_id = {comment.comment_id}
-                  removeComment={this.removeComment}
-                </DeleteComment>
-              </ul>
+                <DeleteComment
+                  comment_id={comment.comment_id}
+                  deleteOwnComment={this.deleteOwnComment}
+                />
+                <Votes />
+              </li>
             );
           })}
         </div>
@@ -75,11 +77,14 @@ class SingleArticle extends Component {
     });
   };
 
-  conditionalDelete = () => {
-    console.log(this.props, "conditionalDeleteprops");
-
-    /* {if(this.state.article.author === comment.author)} */
+  deleteOwnComment = comment_id => {
+    const { article_id } = this.props;
+    console.log(this.props);
+    console.log(article_id);
+    console.log(comment_id);
+    console.log("working...");
   };
+  /* {if(this.state.article.author === comment.author)} */
 }
-// add remove comment
+
 export default SingleArticle;
