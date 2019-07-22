@@ -15,29 +15,33 @@
   padding: 5px;
   border: 2px solid #afbed1;
   border-radius: 8px;
-  /* padding-right: 100px;
-  padding-left: 100px; */
+  padding-right: 100px;
+  padding-left: 100px;
   margin-left: 50px;
   margin-right: 50px;
 }
 .leadarticle {
-  background-color: pink;
+  /* background-color: pink; */
+  /* margin-bottom: 10px; */
+  padding-bottom: 10px;
 }
 
 .postComment {
-  background-color: aqua;
+  /* background-color: aqua; */
   padding: 10px;
+  margin: 5px;
 }
-.comments {
-}
+/* .comments {
+  margin: 25px;
+} */
 /* 
 /* .articlebody {
   padding: 25px;
   margin-bottom: 50px;
 } */
-*/ .smalldetails {
-  text-align: left;
-  border: solid 1px grey;
+.small {
+  text-align: center;
+  /* border: solid 1px grey; */
 }
 /* 
 .articlebody {
