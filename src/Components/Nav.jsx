@@ -15,7 +15,7 @@ class Nav extends Component {
           <Link to="/">All Articles</Link>
           {topics.map(topic => (
             <Link key={topic.slug} to={`/${topic.slug}`}>
-              {topic.slug}
+              {topic.slug.charAt(0).toUpperCase() + topic.slug.slice(1)}
             </Link>
           ))}
         </nav>
