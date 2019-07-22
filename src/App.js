@@ -7,7 +7,6 @@ import Articles from "./Components/Articles.jsx";
 import PostComment from "./Components/PostComment";
 import SingleArticle from "./Components/SingleArticle";
 import Error from "./Components/Error";
-// import Comments from "./Components/SingleArticle";
 import "./CSS/App.css";
 import { Router } from "@reach/router";
 
