@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import * as api from "../utils/api.js";
+import { navigate } from "@reach/router";
 
 class Comments extends Component {
   state = { body: "", author: "jessjelly" };
@@ -7,8 +8,8 @@ class Comments extends Component {
     const { body } = this.state;
     return (
       <form className="postComment" onSubmit={this.handleSubmit}>
-        <label htmlFor="comment">Post a Comment</label>
-        <br />
+        <label htmlFor="comment">Join the conversation...</label>
+
         <textarea
           placeholder="What do you think? "
           id="body"
@@ -33,9 +34,11 @@ class Comments extends Component {
     const { id } = this.props;
     api
       .postComment(author, body, id)
-      .then(({ comment }) => {
+      .then(({ comment, article_id }) => {
         this.props.displayComment(comment);
         this.setState({ body: "" });
+        navigate(`/articles/${article_id}`); // issue here!
+        // props.navigate(`/articles/${article_id}`)
       })
       .catch(err => {
         console.log(err.response);
