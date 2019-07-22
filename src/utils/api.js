@@ -15,9 +15,8 @@ export const getArticles = async (topic, sort_by) => {
 };
 
 export const getArticle = async article_id => {
-  const { data } = await axios
-    .get(`${BASE_URL}/articles/${article_id}`)
-    .catch(console.log);
+  const { data } = await axios.get(`${BASE_URL}/articles/${article_id}`);
+
   return data.article;
 };
 
@@ -37,5 +36,14 @@ export const postComment = async (username, body, article_id) => {
       article_id
     }
   );
+  return data;
+};
+
+export const deleteComment = async (comment_id, article_id) => {
+  const { data } = await axios.delete(
+    `${BASE_URL}/articles/${article_id}/${comment_id}`,
+    comment_id
+  );
+
   return data;
 };
