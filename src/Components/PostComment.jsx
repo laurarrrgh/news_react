@@ -1,11 +1,9 @@
 import React, { Component } from "react";
 import * as api from "../utils/api.js";
-import { navigate } from "@reach/router";
 
-class Comments extends Component {
+class PostComment extends Component {
   state = { body: "", author: "jessjelly" };
   render() {
-    const { body } = this.state;
     return (
       <form className="postComment" onSubmit={this.handleSubmit}>
         <label htmlFor="comment">Join the conversation...</label>
@@ -13,11 +11,19 @@ class Comments extends Component {
         <textarea
           placeholder="What do you think? "
           id="body"
+          rows="4"
+          columns="30"
           type="text"
-          value={body}
+          value={this.state.body}
           onChange={this.handleChange}
         />
-        <button type="submit">Submit!</button>
+        <button
+          className="submit"
+          type="submit"
+          disabled={this.state.body.length === 0}
+        >
+          Submit!
+        </button>
       </form>
     );
   }
@@ -32,18 +38,14 @@ class Comments extends Component {
     const author = this.state.author;
     const { body } = this.state;
     const { id } = this.props;
-    api
-      .postComment(author, body, id)
-      .then(({ comment, article_id }) => {
-        this.props.displayComment(comment);
-        this.setState({ body: "" });
-        navigate(`/articles/${article_id}`); // issue here!
-        // props.navigate(`/articles/${article_id}`)
-      })
-      .catch(err => {
-        console.log(err.response);
-      });
+    api.postComment(author, body, id).then(({ comment, article_id }) => {
+      this.props.displayComment(comment);
+      this.setState({ body: "" });
+    });
+    // .catch(err => {
+    //   console.log(err.response);
+    // });
   };
 }
 
-export default Comments;
+export default PostComment;
