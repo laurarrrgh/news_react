@@ -18,7 +18,7 @@ const ArticleCard = ({ article }) => {
         </Link>
         <small className="small">
           Posted by {article.author}
-          Posted at:{moment(article.created_at).format("DD-MM-YYYY hh:mm:ss")}
+          Posted at:{moment(article.created_at).format("DD-MM-YYYY hh:mm")}
         </small>
       </div>
     </div>
