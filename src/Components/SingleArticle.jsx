@@ -35,7 +35,7 @@ class SingleArticle extends Component {
           <PostComment
             className="commentBox"
             key="postComment"
-            updateComments={this.displayComment}
+            displayComment={this.displayComment}
             id={article.article_id}
           />
           {comments.map(comment => {
@@ -87,7 +87,7 @@ class SingleArticle extends Component {
     });
   };
 
-  addNewComment = comment => {
+  displayComment = comment => {
     this.setState(state => {
       return {
         comments: [comment, ...this.state.comments]
