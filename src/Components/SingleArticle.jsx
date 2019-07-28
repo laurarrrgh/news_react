@@ -22,7 +22,7 @@ class SingleArticle extends Component {
           <h1 className="singleArticleHeader">{article.title}</h1>
           <p className="articlebody">{article.body}</p>
           <small className="smalldetails">
-            Posted by:{article.author} Votes:{article.votes} Posted at:
+            Posted by:{article.author} Posted at:
             {moment(article.created_at).format("DD-MM-YYYY hh:mm")}
           </small>
           <Votes
