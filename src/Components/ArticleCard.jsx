@@ -18,7 +18,6 @@ const ArticleCard = ({ article }) => {
         </Link>
         <small className="small">
           Posted by {article.author}
-          Number of votes: {article.votes}
           Posted at:{moment(article.created_at).format("DD-MM-YYYY hh:mm:ss")}
         </small>
       </div>
