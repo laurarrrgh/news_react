@@ -45,7 +45,6 @@ class SingleArticle extends Component {
               <li className="comment" key={comment.comment_id}>
                 <p>{comment.body}</p>
                 <small>Author: {comment.author} </small>
-                <small>Votes: {comment.votes}</small>
                 <small>
                   Posted at:
                   {moment(comment.created_at).format("DD-MM-YYYY hh:mm")}
@@ -56,7 +55,6 @@ class SingleArticle extends Component {
                     deleteOwnComment={this.deleteOwnComment}
                   />
                 ) : null}
-
                 <Votes
                   votes={comment.votes}
                   id={comment.comment_id}
