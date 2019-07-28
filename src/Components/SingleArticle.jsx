@@ -25,7 +25,11 @@ class SingleArticle extends Component {
             Posted by:{article.author} Votes:{article.votes} Posted at:
             {moment(article.created_at).format("DD-MM-YYYY hh:mm")}
           </small>
-          <Votes />
+          <Votes
+            votes={article.votes}
+            id={article.article_id}
+            section="articles"
+          />
         </span>
         <div className="comments">
           <PostComment
@@ -35,6 +39,8 @@ class SingleArticle extends Component {
             id={article.article_id}
           />
           {comments.map(comment => {
+            // console.log(this.state);
+            // console.log(comment.author);
             return (
               <li className="comment" key={comment.comment_id}>
                 <p>{comment.body}</p>
@@ -44,12 +50,18 @@ class SingleArticle extends Component {
                   Posted at:
                   {moment(comment.created_at).format("DD-MM-YYYY hh:mm")}
                 </small>
-                {/* if(this.state.article.author === comment.author) */}
-                <DeleteComment
-                  comment_id={comment.comment_id}
-                  deleteOwnComment={this.deleteOwnComment}
+                {comment.author === "jessjelly" ? (
+                  <DeleteComment
+                    comment_id={comment.comment_id}
+                    deleteOwnComment={this.deleteOwnComment}
+                  />
+                ) : null}
+
+                <Votes
+                  votes={comment.votes}
+                  id={comment.comment_id}
+                  section="comments"
                 />
-                <Votes />
               </li>
             );
           })}
@@ -77,14 +89,22 @@ class SingleArticle extends Component {
     });
   };
 
+  addNewComment = comment => {
+    this.setState(state => {
+      return {
+        comments: [comment, ...this.state.comments]
+      };
+    });
+  };
+
   deleteOwnComment = comment_id => {
     const { article_id } = this.props;
     console.log(this.props);
     console.log(article_id);
     console.log(comment_id);
     console.log("working...");
-  };
-  /* {if(this.state.article.author === comment.author)} */
-}
 
+    api.deleteComment(comment_id, article_id).then(() => this.setState); //setState needs to be return filter of the comments from above
+  };
+}
 export default SingleArticle;
