@@ -39,8 +39,6 @@ class SingleArticle extends Component {
             id={article.article_id}
           />
           {comments.map(comment => {
-            // console.log(this.state);
-            // console.log(comment.author);
             return (
               <li className="comment" key={comment.comment_id}>
                 <p>{comment.body}</p>
@@ -96,13 +94,7 @@ class SingleArticle extends Component {
   };
 
   deleteOwnComment = comment_id => {
-    const { article_id } = this.props;
-    console.log(this.props);
-    console.log(article_id);
-    console.log(comment_id);
-    console.log("working...");
-
-    api.deleteComment(comment_id, article_id).then(() => this.setState); //setState needs to be return filter of the comments from above
+    //api.deleteComment(comment_id).then(() => this.setState()); //setState needs to be return filter of the comments from above
   };
 }
 export default SingleArticle;
