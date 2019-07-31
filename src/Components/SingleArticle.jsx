@@ -14,7 +14,6 @@ class SingleArticle extends Component {
 
   render() {
     const { article, comments } = this.state;
-    // const { comment_id } = this.props;
 
     return (
       <div className="singleArticleMain">
@@ -94,7 +93,13 @@ class SingleArticle extends Component {
   };
 
   deleteOwnComment = comment_id => {
-    //api.deleteComment(comment_id).then(() => this.setState()); //setState needs to be return filter of the comments from above
+    const comments = this.state.comments.filter(comment => {
+      return comment.comment_id !== comment_id;
+    });
+    this.setState({
+      comments
+    });
   };
 }
+
 export default SingleArticle;
