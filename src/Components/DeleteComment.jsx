@@ -2,7 +2,8 @@ import React, { Component } from "react";
 import * as api from "../utils/api.js";
 
 class DeleteComment extends Component {
-  state = { author: "jessjelly" };
+  state = { author: "jessjelly", article_id: this.props.article_id };
+
   render() {
     return (
       <div>
@@ -14,11 +15,12 @@ class DeleteComment extends Component {
   }
   handleSubmit = event => {
     event.preventDefault();
-    const { article_id } = this.props;
     const { comment_id } = this.props;
 
     console.log(this.props.comment_id);
     console.log(this.props);
+    // comment_id is working
+    // missing article_id - need article_id for deleteComment util in api.js
     console.log(this.state);
 
     api.deleteComment(comment_id).then(this.props.deleteOwnComment(comment_id));
@@ -27,6 +29,7 @@ class DeleteComment extends Component {
     // state defined above = author
     // need conditional logic so that delete button is only on article where this.props.author === comment.author
   };
+  // path not found so delete not working
 }
 
 export default DeleteComment;
