@@ -38,13 +38,8 @@ export const postComment = async (username, body, article_id) => {
   return data;
 };
 
-export const deleteComment = async (comment_id, article_id) => {
-  const { data } = await axios.delete(
-    `${BASE_URL}/articles/${article_id}/comments/${comment_id}`,
-    comment_id,
-    article_id
-  );
-  return data;
+export const deleteComment = async comment_id => {
+  await axios.delete(`${BASE_URL}/comments/${comment_id}`);
 };
 
 export const vote = async (id, incVotes, section) => {
