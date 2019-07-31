@@ -38,7 +38,7 @@ class PostComment extends Component {
     const author = this.state.author;
     const { body } = this.state;
     const { id } = this.props;
-    api.postComment(author, body, id).then(({ comment, article_id }) => {
+    api.postComment(author, body, id).then(({ comment }) => {
       this.props.displayComment(comment);
       this.setState({ body: "" });
     });
