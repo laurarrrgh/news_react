@@ -1,62 +1,53 @@
-/* .ArticleCard {
-  /* grid-area: main;
+.ArticleCard {
   display: grid;
-  grid-columns: 100px auto;
-  align-content: center;
-  border-bottom: solid 1px black;
-  padding-top: 25px;
-  margin-right: 25px;
-  margin: 10px;
-  box-shadow: 5px #888888; */
-
-.Author {
-  grid-template-columns: 1fr 1fr 1fr;
-  align-content: stretch;
-  align-items: stretch;
-  display: grid;
-  justify-content: space-evenly;
-}
-
-.additional {
-  display: grid;
-  align-items: stretch;
-}
-
-.ArticleSpacing {
   padding: 5px;
-  padding-left: 50px;
-  padding-right: 70px;
-  margin-right: 50px;
+  background-color: #e0e5ed;
+  margin: 10px;
 }
 .mappedArticles {
   padding-left: 150px;
   padding-right: 150px;
   margin: 5px;
-}
-.ArticleCard {
-  display: grid;
-  /* grid-template-columns: 100px auto; */
-  padding: 5px;
-  background-color: white;
-  margin: 10px;
+  background-color: #f5f5f5;
+  max-height: 100%;
 }
 
 .individualArticle {
+  display: grid;
   border: 2px solid #afbed1;
   border-radius: 8px;
   margin-left: 50px;
   margin-right: 50px;
   padding: 5px;
   margin: 10px;
+  background-color: #e0e5ed;
 }
 
-/* .ArticleSpacing {
-}
-
-.main {
-}
 .ArticleTitle {
+  font-size: 115%;
+  padding-top: 10px;
 }
 
-.app {
+.topic {
+  font-size: 85%;
+  padding-top: 2px;
+}
+
+.details {
+  font-size: 75%;
+  grid-area: details;
+  display: grid;
+  grid-template-areas: "author time comments";
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+/* .author {
+  grid-area: author;
+}
+
+.time {
+  grid-area: time;
+}
+.comments {
+  grid-area: comments;
 } */
