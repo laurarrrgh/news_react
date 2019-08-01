@@ -5,6 +5,7 @@ import PostComment from "./PostComment.jsx";
 import DeleteComment from "./DeleteComment.jsx";
 import Votes from "./Votes.jsx";
 import * as moment from "moment";
+import { navigate } from "@reach/router";
 
 class SingleArticle extends Component {
   state = {
@@ -70,18 +71,39 @@ class SingleArticle extends Component {
     this.fetchComments();
   }
 
-  fetchArticle = () => {
+  fetchArticle = async () => {
     const { article_id } = this.props;
-    api.getArticle(article_id).then(article => {
-      this.setState({ article });
-    });
+    await api
+      .getArticle(article_id)
+      .then(article => {
+        this.setState({ article });
+      })
+
+      .catch(err => {
+        navigate("/error", {
+          state: {
+            message: "This article could not be found"
+          },
+          replace: true
+        });
+      });
   };
 
   fetchComments = () => {
     const { article_id } = this.props;
-    api.getComments(article_id).then(comments => {
-      this.setState({ comments });
-    });
+    api
+      .getComments(article_id)
+      .then(comments => {
+        this.setState({ comments });
+      })
+      .catch(err => {
+        navigate("/error", {
+          state: {
+            message: "Comments could not be loaded"
+          },
+          replace: true
+        });
+      });
   };
 
   displayComment = comment => {
