@@ -12,9 +12,11 @@ class Nav extends Component {
     return (
       <div>
         <nav className="nav">
-          <Link to="/">All Articles</Link>
+          <Link className="navLink" to="/">
+            All Articles
+          </Link>
           {topics.map(topic => (
-            <Link key={topic.slug} to={`/${topic.slug}`}>
+            <Link className="navLink" key={topic.slug} to={`/${topic.slug}`}>
               {topic.slug.charAt(0).toUpperCase() + topic.slug.slice(1)}
             </Link>
           ))}
