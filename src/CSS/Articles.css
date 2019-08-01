@@ -1,28 +1,11 @@
 .allArticles {
   overflow-y: scroll;
   display: grid;
-  grid-template-columns: 1fr 5fr 1fr;
-  grid-template-areas:
-    "left"
-    "main"
-    "right";
+  background-color: #f5f5f5;
 }
 
 .dropdown {
-  position: relative;
-  display: inline-block;
+  margin-right: 175px;
+  float: right;
 }
-
-.form {
-  /* display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr 1fr; */
-  /* flex-wrap: wrap;
-  align-content: right; */
-}
-
-.mappedArticles {
-}
-
-.articleCard {
-  padding: 5px;
-}
+/* need to align box right */
