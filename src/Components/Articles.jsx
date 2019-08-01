@@ -3,6 +3,7 @@ import * as api from "../utils/api.js";
 import ArticleCard from "./ArticleCard.jsx";
 import "../CSS/ArticleCard.css";
 import Loading from "./Loading.jsx";
+import { navigate } from "@reach/router";
 
 class Articles extends Component {
   state = {
@@ -57,9 +58,19 @@ class Articles extends Component {
 
     const { topic } = this.props;
     const sort_by = event.target.value;
-    api.getArticles(topic, sort_by).then(articles => {
-      this.setState({ articles });
-    });
+    api
+      .getArticles(topic, sort_by)
+      .then(articles => {
+        this.setState({ articles });
+      })
+      .catch(err => {
+        navigate("/error", {
+          state: {
+            message: "Articles can not be loaded"
+          },
+          replace: true
+        });
+      });
   };
 
   handleChange = event => {
@@ -67,9 +78,19 @@ class Articles extends Component {
     const { topic } = this.props;
     const sort_by = event.target.value;
 
-    api.getArticles(topic, sort_by).then(articles => {
-      this.setState({ articles });
-    });
+    api
+      .getArticles(topic, sort_by)
+      .then(articles => {
+        this.setState({ articles });
+      })
+      .catch(err => {
+        navigate("/error", {
+          state: {
+            message: "Articles cannot be loaded"
+          },
+          replace: true
+        });
+      });
   };
 
   fetchArticles = async () => {
@@ -81,9 +102,19 @@ class Articles extends Component {
         .getArticles()
         .then(articles => this.setState({ articles, loading: false }));
     } else {
-      await api.getArticles(topic, sort_by).then(articles => {
-        this.setState({ articles, loading: false });
-      });
+      await api
+        .getArticles(topic, sort_by)
+        .then(articles => {
+          this.setState({ articles, loading: false });
+        })
+        .catch(err => {
+          navigate("/error", {
+            state: {
+              message: "Article could not be loaded"
+            },
+            replace: true
+          });
+        });
     }
   };
 }
