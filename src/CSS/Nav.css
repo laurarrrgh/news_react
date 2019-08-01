@@ -1,32 +1,28 @@
 .nav {
-  grid-template-columns: 1fr 4fr;
-  grid-template-rows: 2fr 3fr;
-  align-items: stretch;
+  grid-area: nav;
   display: flex;
+  flex-direction: row;
   justify-content: space-evenly;
   background: #afbed1;
-  /* border-bottom: 3px solid black; */
-  /* background-color: #6b787a;
-  padding: 3%;
-  text-align: center; */
-  grid-area: nav;
-  /* border: 1px solid green; */
-  padding-top: 25px;
-  padding-bottom: 10px;
+  padding-top: 15px;
+  padding-bottom: 15px;
   margin-bottom: 10px;
 }
 
-/* unvisited link */
+.navLink {
+  padding-left: 2px;
+  padding-right: 5px;
+  margin: 1px;
+}
+
 a:link {
   color: blue;
 }
 
-/* visited link */
 a:visited {
   color: blue;
 }
 
-/* mouse over link */
 a:hover {
   color: red;
 }
