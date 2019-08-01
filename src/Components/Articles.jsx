@@ -3,6 +3,7 @@ import * as api from "../utils/api.js";
 import ArticleCard from "./ArticleCard.jsx";
 import "../CSS/ArticleCard.css";
 import Loading from "./Loading.jsx";
+import "../CSS/Articles.css";
 import { navigate } from "@reach/router";
 
 class Articles extends Component {
