@@ -2,19 +2,23 @@ import React, { Component } from "react";
 import * as api from "../utils/api.js";
 import ArticleCard from "./ArticleCard.jsx";
 import "../CSS/ArticleCard.css";
+import Loading from "./Loading.jsx";
 
 class Articles extends Component {
   state = {
     articles: [],
     sort_by: "created_at",
-    order: "asc"
+    order: "asc",
+    loading: true
   };
 
   render() {
     const { topic } = this.props;
-    const { articles } = this.state;
+    const { articles, loading } = this.state;
 
-    return (
+    return loading ? (
+      <Loading />
+    ) : (
       <div className="allArticles">
         <h2>
           {topic
@@ -68,15 +72,17 @@ class Articles extends Component {
     });
   };
 
-  fetchArticles = () => {
+  fetchArticles = async () => {
     const { topic } = this.props;
     const { sort_by } = this.state;
 
     if (topic === "undefined") {
-      api.getArticles().then(articles => this.setState({ articles }));
+      await api
+        .getArticles()
+        .then(articles => this.setState({ articles, loading: false }));
     } else {
-      api.getArticles(topic, sort_by).then(articles => {
-        this.setState({ articles });
+      await api.getArticles(topic, sort_by).then(articles => {
+        this.setState({ articles, loading: false });
       });
     }
   };
