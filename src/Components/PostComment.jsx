@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import * as api from "../utils/api.js";
+import { navigate } from "@reach/router";
 
 class PostComment extends Component {
   state = { body: "", author: "jessjelly" };
@@ -38,13 +39,20 @@ class PostComment extends Component {
     const author = this.state.author;
     const { body } = this.state;
     const { id } = this.props;
-    api.postComment(author, body, id).then(({ comment }) => {
-      this.props.displayComment(comment);
-      this.setState({ body: "" });
-    });
-    // .catch(err => {
-    //   console.log(err.response);
-    // });
+    api
+      .postComment(author, body, id)
+      .then(({ comment }) => {
+        this.props.displayComment(comment);
+        this.setState({ body: "" });
+      })
+      .catch(err => {
+        navigate("/error", {
+          state: {
+            message: "Comment could not be added"
+          },
+          replace: true
+        });
+      });
   };
 }
 
