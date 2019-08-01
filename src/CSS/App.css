@@ -3,25 +3,12 @@
   width: 100vw;
   height: 100vh;
   display: grid;
+  grid-template-columns: 1fr;
   grid-template-rows: 2fr 2fr 12fr 1fr;
-
   grid-template-areas:
     "header"
     "nav"
     "main"
     "footer";
   background-color: white;
-}
-
-/* .nav {
-  
-} */
-
-/* .articles {
-  grid-area: main;
-  border: 1px solid blue;
-} */
-
-.footer {
-  grid-area: footer;
 }
