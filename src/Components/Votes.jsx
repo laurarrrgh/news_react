@@ -1,11 +1,11 @@
 import React, { Component } from "react";
 import * as api from "../utils/api.js";
+import propType from "prop-types";
+import { navigate } from "@reach/router";
 
 class Votes extends Component {
   state = {
     voteChange: 0
-    // article: this.props.article,
-    // comment: this.props.comment
   };
   render() {
     const { voteChange } = this.state;
@@ -14,7 +14,7 @@ class Votes extends Component {
       <div>
         <button
           onClick={() => {
-            this.vote(1);
+            this.voting(1);
           }}
           disabled={voteChange === 1}
         >
@@ -23,7 +23,7 @@ class Votes extends Component {
         <p>{votes + voteChange}</p>
         <button
           onClick={() => {
-            this.vote(-1);
+            this.voting(-1);
           }}
           disabled={voteChange === -1}
         >
@@ -32,31 +32,27 @@ class Votes extends Component {
       </div>
     );
   }
-  vote = increment => {
-    const { id, section } = this.props;
-
-    api
-      .vote(id, increment, section)
-      .then(updatedVotes => {})
-      .catch(err => {
-        this.setState(state => {
-          return { voteChange: state.voteChange - increment };
+  voting = increment => {
+    const { id, section, votes } = this.props;
+    //add local storgae
+    api.vote(id, increment, section).catch(err => {
+      this.setState(state => {
+        return { voteChange: state.voteChange - increment };
+      }).catch(err => {
+        navigate("/error", {
+          state: {
+            message: "Votes could not be updated"
+          },
+          replace: true
         });
       });
-    this.setState(state => ({ voteChange: state.voteChange + increment }));
+    });
+    this.setState(state => ({
+      voteChange: state.voteChange + increment
 
-    //       voteChange: state.voteChange;
-
-    //   })
-    // );
+      // Votes.propType = {votes: propType.number.isRequired}
+    }));
   };
-
-  // changeArticleVote;
-
-  // changeCommentVote;
-
-  // }
-  //   Votes.proptypes = {votes: Proptype.number require}
 }
 
 export default Votes;
