@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import * as api from "../utils/api.js";
-import propType from "prop-types";
 import { navigate } from "@reach/router";
 
 class Votes extends Component {
@@ -11,8 +10,9 @@ class Votes extends Component {
     const { voteChange } = this.state;
     const { votes } = this.props;
     return (
-      <div>
+      <section className="voteBox">
         <button
+          className="upArrow"
           onClick={() => {
             this.voting(1);
           }}
@@ -20,8 +20,9 @@ class Votes extends Component {
         >
           +
         </button>
-        <p>{votes + voteChange}</p>
+        <span className="voteCount"> {votes + voteChange}</span>
         <button
+          className="downArrow"
           onClick={() => {
             this.voting(-1);
           }}
@@ -29,11 +30,11 @@ class Votes extends Component {
         >
           -
         </button>
-      </div>
+      </section>
     );
   }
   voting = increment => {
-    const { id, section, votes } = this.props;
+    const { id, section } = this.props;
     //add local storgae
     api.vote(id, increment, section).catch(err => {
       this.setState(state => {
