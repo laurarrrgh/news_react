@@ -3,7 +3,6 @@ import Header from "./Components/Header.jsx";
 import Footer from "./Components/Footer.jsx";
 import Nav from "./Components/Nav.jsx";
 import Articles from "./Components/Articles.jsx";
-// import Article from "./Components/ArticleCard.jsx";
 import PostComment from "./Components/PostComment";
 import SingleArticle from "./Components/SingleArticle";
 import Error from "./Components/Error";
