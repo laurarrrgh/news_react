@@ -1,16 +1,42 @@
+.gridBox {
+  display: grid;
+  grid-template-rows: auto;
+  grid-template-columns: 100px auto;
+  grid-template-areas: "voteBox articleBody";
+}
+.commentGridBox {
+  display: grid;
+  grid-template-rows: auto;
+  grid-template-columns: 100px auto;
+  grid-template-areas: "voteBox articleBody";
+}
 .singleArticleMain {
+  display: grid;
   padding-top: 20px;
   padding-bottom: 20px;
   padding-right: 50px;
   padding-left: 50px;
   margin: 0;
-  background-color: white;
+  background-color: #f5f5f5;
+}
+
+.articleBody {
+  grid-area: articleBody;
+  padding-left: 50px;
+  padding-right: 50px;
+}
+
+.voteBox {
+  display: grid;
+  grid-area: voteBox;
+  vertical-align: text-bottom;
+  padding-top: 1em;
 }
 
 .comment {
   /* use this one! */
   display: grid;
-  /* grid-template-columns: 100px auto; */
+  grid-area: comment;
   padding: 0;
   padding: 5px;
   border: 2px solid #afbed1;
@@ -19,32 +45,27 @@
   padding-left: 100px;
   margin-left: 50px;
   margin-right: 50px;
-}
-.leadarticle {
-  /* background-color: pink; */
-  /* margin-bottom: 10px; */
-  padding-bottom: 10px;
+  margin-bottom: 10px;
 }
 
+.leadarticle {
+  background-color: white;
+  /* margin-bottom: 10px; */
+  padding-bottom: 10px;
+  padding-left: 25px;
+  padding-right: 25px;
+}
 .postComment {
-  /* background-color: aqua; */
+  background-color: ;
   padding: 10px;
   margin: 5px;
 }
-/* .comments {
-  margin: 25px;
-} */
-/* 
-/* .articlebody {
-  padding: 25px;
-  margin-bottom: 50px;
-} */
+
 .small {
-  text-align: center;
-  /* border: solid 1px grey; */
+  display: grid;
+  grid-area: small;
+  grid-template-rows: auto;
+  grid-template-columns: 100px auto;
+  grid-template-areas: "small small";
+  text-align: left;
 }
-/* 
-.articlebody {
-  padding: 50px;
-  margin-bottom: 1px;
-} */
