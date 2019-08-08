@@ -1,0 +1,29 @@
+.voteBox {
+  grid-area: voteBox;
+  display: grid;
+  grid-template-columns: 50px 50px 50px;
+  grid-template-areas:
+    "upArrow"
+    "voteCount"
+    "downArrow";
+}
+
+.upArrow {
+  grid-area: upArrow;
+  height: 50%;
+  width: 50%;
+  text-align: justify;
+}
+
+.voteCount {
+  grid-area: voteCount;
+  text-align: justify;
+  padding-left: 4px;
+}
+
+.downArrow {
+  grid-area: downArrow;
+  height: 50%;
+  width: 50%;
+  text-align: justify;
+}
