@@ -40,14 +40,3 @@
   grid-template-areas: "author time comments";
   grid-template-columns: 1fr 1fr 1fr;
 }
-
-/* .author {
-  grid-area: author;
-}
-
-.time {
-  grid-area: time;
-}
-.comments {
-  grid-area: comments;
-} */
