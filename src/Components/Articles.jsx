@@ -25,7 +25,7 @@ class Articles extends Component {
         <h2>
           {topic
             ? `${topic.charAt(0).toUpperCase() + topic.slice(1)} Articles`
-            : "Welcome home...(page)!"}
+            : "Welcome to NC News"}
         </h2>
         <form className="form">
           <select className="dropdown" onChange={this.handleChange}>
