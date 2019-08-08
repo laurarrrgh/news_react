@@ -1,23 +1,24 @@
 import React, { Component } from "react";
 import * as api from "../utils/api.js";
 import { navigate } from "@reach/router";
+import "../CSS/PostComment.css";
 
 class PostComment extends Component {
   state = { body: "", author: "jessjelly" };
   render() {
     return (
-      <form className="postComment" onSubmit={this.handleSubmit}>
-        <label htmlFor="comment">Join the conversation...</label>
-
+      <form onSubmit={this.handleSubmit}>
         <textarea
-          placeholder="What do you think? "
+          className="postComment"
+          placeholder="Join the Conversation...."
           id="body"
-          rows="4"
-          columns="30"
+          rows="5"
+          columns="20"
           type="text"
           value={this.state.body}
           onChange={this.handleChange}
         />
+        <br />
         <button
           className="submit"
           type="submit"
